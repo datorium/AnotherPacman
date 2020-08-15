@@ -55,12 +55,20 @@ namespace AnotherPacman
             switch (e.KeyCode)
             {
                 case Keys.Right:
+                    hero.HorizontalVelocity = hero.Step;
+                    hero.VerticalVelocity = 0;
                     break;
                 case Keys.Down:
+                    hero.HorizontalVelocity = 0;
+                    hero.VerticalVelocity = hero.Step;
                     break;
                 case Keys.Left:
+                    hero.HorizontalVelocity = -hero.Step;
+                    hero.VerticalVelocity = 0;
                     break;
                 case Keys.Up:
+                    hero.HorizontalVelocity = 0;
+                    hero.VerticalVelocity = -hero.Step;
                     break;
             }
         }
