@@ -27,6 +27,8 @@ namespace AnotherPacman
         {
             //adjust game form size
             this.Size = new Size(500, 500);
+            //add key down event handler
+            this.KeyDown += Game_KeyDown;
             //adding level to the game
             this.Controls.Add(level);
             //adding hero to the game
@@ -48,6 +50,19 @@ namespace AnotherPacman
             hero.Top += hero.VerticalVelocity;
         }
 
-
+        private void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Right:
+                    break;
+                case Keys.Down:
+                    break;
+                case Keys.Left:
+                    break;
+                case Keys.Up:
+                    break;
+            }
+        }
     }
 }
