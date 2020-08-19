@@ -65,6 +65,7 @@ namespace AnotherPacman
             HeroBorderCollision();
             MoveEnemies();
             EnemyBorderCollision();
+            HeroEnemyColission();
         }
 
         private void MoveHero()
@@ -125,7 +126,9 @@ namespace AnotherPacman
                 hero.Top = level.Top + level.Height;
             }
         }
-
+        /// <summary>
+        /// Credit: Wolferado
+        /// </summary>
         private void EnemyBorderCollision()
         {
             foreach(var enemy in enemies)
@@ -177,7 +180,25 @@ namespace AnotherPacman
 
         private void GameOver()
         {
+            mainTimer.Stop();
+            labelGameOver.BackColor = Color.Transparent;
+            labelGameOver.Parent = level;
+            labelGameOver.Visible = true;
+            labelGameOver.BringToFront();
+        }
 
+        /// <summary>
+        /// Credits: Strykeros :)
+        /// </summary>
+        private void HeroEnemyColission()
+        {
+            foreach (var enemy in enemies)
+            {
+                if (enemy.Bounds.IntersectsWith(hero.Bounds))
+                {
+                    GameOver();
+                }
+            }
         }
     }
 }
