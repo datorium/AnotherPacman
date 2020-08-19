@@ -48,6 +48,7 @@ namespace AnotherPacman
         {
             //adding hero to the game
             this.Controls.Add(hero);
+            hero.Parent = level;
             hero.BringToFront();
         }
 
@@ -166,6 +167,7 @@ namespace AnotherPacman
                 enemy.SetDirection(rand.Next(1, 5));                
                 enemies.Add(enemy);
                 this.Controls.Add(enemy);
+                enemy.Parent = level;
                 enemy.BringToFront();
             }
         }
