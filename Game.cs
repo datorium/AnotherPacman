@@ -17,6 +17,7 @@ namespace AnotherPacman
         private Random rand = new Random();
         private Level level = new Level();
         private Hero hero = new Hero();
+        private Food food = new Food();
         private Timer mainTimer = null;
         private Timer enemySpawningTimer = null;
         private List<Enemy> enemies = new List<Enemy>();
@@ -38,6 +39,15 @@ namespace AnotherPacman
             AddLevel();
             AddHero();
             AddEnemies(initialEnemyCount);
+            AddFood();
+        }
+
+        private void AddFood()
+        {
+            this.Controls.Add(food);
+            food.Location = new Point(rand.Next(100, 400), rand.Next(100, 400));
+            food.Parent = level;
+            food.BringToFront();
         }
 
         private void AddLevel()
@@ -82,6 +92,7 @@ namespace AnotherPacman
             MoveEnemies();
             EnemyBorderCollision();
             HeroEnemyColission();
+            HeroFoodCollision();
         }
 
         private void MoveHero()
@@ -170,6 +181,19 @@ namespace AnotherPacman
                     enemy.SetDirection(3);
                 }
             }
+        }
+
+        private void HeroFoodCollision()
+        {
+            if (hero.Bounds.IntersectsWith(food.Bounds))
+            {
+                RespawnFood();
+            }
+        }
+
+        private void RespawnFood()
+        {
+            food.Location = new Point(rand.Next(100, 400), rand.Next(100, 400));
         }
 
         private void AddEnemies(int enemyCount)
