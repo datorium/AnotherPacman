@@ -187,6 +187,7 @@ namespace AnotherPacman
         {
             if (hero.Bounds.IntersectsWith(food.Bounds))
             {
+                hero.Step += 1;
                 RespawnFood();
             }
         }
@@ -194,6 +195,7 @@ namespace AnotherPacman
         private void RespawnFood()
         {
             food.Location = new Point(rand.Next(100, 400), rand.Next(100, 400));
+            food.SetType(rand.Next(1, 5));
         }
 
         private void AddEnemies(int enemyCount)
