@@ -18,6 +18,7 @@ namespace AnotherPacman
         private Level level = new Level();
         private Hero hero = new Hero();
         private Timer mainTimer = null;
+        private Timer enemySpawningTimer = null;
         private List<Enemy> enemies = new List<Enemy>();
 
         public Game()
@@ -25,6 +26,7 @@ namespace AnotherPacman
             InitializeComponent();
             InitializeGame();
             InitializeMainTimer();
+            InitializeEnemySpawningTimer();
         }
 
         private void InitializeGame()
@@ -35,7 +37,7 @@ namespace AnotherPacman
             this.KeyDown += Game_KeyDown;
             AddLevel();
             AddHero();
-            AddEnemies();
+            AddEnemies(initialEnemyCount);
         }
 
         private void AddLevel()
@@ -58,6 +60,19 @@ namespace AnotherPacman
             mainTimer.Tick += MainTimer_Tick;
             mainTimer.Interval = 20;
             mainTimer.Start();
+        }
+
+        private void InitializeEnemySpawningTimer()
+        {
+            enemySpawningTimer = new Timer();
+            enemySpawningTimer.Tick += EnemySpawningTimer_Tick;
+            enemySpawningTimer.Interval = 3000;
+            enemySpawningTimer.Start();
+        }
+
+        private void EnemySpawningTimer_Tick(object sender, EventArgs e)
+        {
+            AddEnemies(1);
         }
 
         private void MainTimer_Tick(object sender, EventArgs e)
@@ -157,10 +172,10 @@ namespace AnotherPacman
             }
         }
 
-        private void AddEnemies()
+        private void AddEnemies(int enemyCount)
         {
             Enemy enemy;
-            for(int i = 0; i < initialEnemyCount; i++)
+            for(int i = 0; i < enemyCount; i++)
             {
                 enemy = new Enemy();
                 enemy.Location = new Point(rand.Next(100, 500), rand.Next(100, 500));
