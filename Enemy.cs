@@ -64,21 +64,25 @@ namespace AnotherPacman
         {
             switch (directionCode)
             {
-                case 1:
+                case 1: //right
                     HorizontalVelocity = Step;
                     VerticalVelocity = 0;
+                    this.Direction = "right";
                     break;
-                case 2:
+                case 2: //down
                     HorizontalVelocity = 0;
                     VerticalVelocity = Step;
+                    this.Direction = "down";
                     break;
-                case 3:
+                case 3: //left
                     HorizontalVelocity = -Step;
                     VerticalVelocity = 0;
+                    this.Direction = "left";
                     break;
-                case 4:
+                case 4: //up
                     HorizontalVelocity = 0;
                     VerticalVelocity = -Step;
+                    this.Direction = "up";
                     break;
             }
         }

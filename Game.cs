@@ -140,23 +140,19 @@ namespace AnotherPacman
             {
                 if (enemy.Top < level.Top) //From "up" to "down"
                 {
-                    enemy.HorizontalVelocity = 0;
-                    enemy.VerticalVelocity = +enemy.Step;
+                    enemy.SetDirection(2);
                 }
                 if (enemy.Top > level.Height - enemy.Height) //From "down" to "up"
                 {
-                    enemy.HorizontalVelocity = 0;
-                    enemy.VerticalVelocity = -enemy.Step;
+                    enemy.SetDirection(4);                   
                 }
                 if (enemy.Left < level.Left) //From "left" to "right"
                 {
-                    enemy.HorizontalVelocity = +enemy.Step;
-                    enemy.VerticalVelocity = 0;
+                    enemy.SetDirection(1);
                 }
                 if (enemy.Left > level.Width - enemy.Width) //From "right" to "left"
                 {
-                    enemy.HorizontalVelocity = -enemy.Step;
-                    enemy.VerticalVelocity = 0;
+                    enemy.SetDirection(3);
                 }
             }
         }

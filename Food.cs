@@ -9,6 +9,6 @@ namespace AnotherPacman
 {
     class Food : PictureBox
     {
-
+        
     }
 }
