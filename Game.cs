@@ -193,6 +193,12 @@ namespace AnotherPacman
                 score += 200;
                 UpdateScoreLabel();
                 AnimateScore(200, food.Left, food.Top);
+                
+                if(food.Type == 4)
+                {
+                    hero.PredatorMode = true;
+                }
+                
                 RespawnFood();
             }
         }
@@ -254,12 +260,26 @@ namespace AnotherPacman
         /// </summary>
         private void HeroEnemyColission()
         {
-            foreach (var enemy in enemies)
+            Enemy enemy;
+            for (int enemyCounter = 0; enemyCounter < enemies.Count; enemyCounter++)
             {
+                enemy = enemies[enemyCounter];
                 if (enemy.Bounds.IntersectsWith(hero.Bounds))
                 {
-                    GameOver();
-                }
+                    if(hero.PredatorMode == true)
+                    {
+
+                        AnimateScore(400, enemy.Left, enemy.Top);
+                        enemies.RemoveAt(enemyCounter);
+                        enemy.Dispose();
+                        score += 400;
+                        UpdateScoreLabel();
+                    }
+                    else
+                    {
+                        GameOver();
+                    }                    
+                }                
             }
         }
     }

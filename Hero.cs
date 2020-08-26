@@ -14,6 +14,7 @@ namespace AnotherPacman
         public int HorizontalVelocity { get; set; } = 0;
         public int VerticalVelocity { get; set; } = 0;
         public string Direction { get; set; } = "right";
+        public bool PredatorMode { get; set; } = false;
 
         private Timer animationTimer = null;
         private Timer pacmanMeltTimer = null;
