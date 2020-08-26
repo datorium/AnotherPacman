@@ -46,6 +46,7 @@ namespace AnotherPacman
         private void Animate()
         {
             this.Top -= 1;
+            
             frameCounter += 1;
             if(frameCounter > 50)
             {

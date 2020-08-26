@@ -242,6 +242,7 @@ namespace AnotherPacman
         private void GameOver()
         {
             mainTimer.Stop();
+            hero.Melt();
             labelGameOver.BackColor = Color.Transparent;
             labelGameOver.Parent = level;
             labelGameOver.Visible = true;
