@@ -139,7 +139,7 @@ namespace AnotherPacman
             }
             SetRandomEnemyDirection();
         }
-
+        
         private void HeroBorderCollision()
         {
             if(hero.Left > level.Left + level.Width)
@@ -196,7 +196,7 @@ namespace AnotherPacman
                 
                 if(food.Type == 4)
                 {
-                    hero.PredatorMode = true;
+                    hero.PredatorModeOn();
                 }
                 
                 RespawnFood();
