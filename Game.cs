@@ -192,8 +192,17 @@ namespace AnotherPacman
                 hero.Step += 0;
                 score += 200;
                 UpdateScoreLabel();
+                AnimateScore(200, food.Left, food.Top);
                 RespawnFood();
             }
+        }
+
+        private void AnimateScore(int scoreValue, int x, int y)
+        {
+            Score scoreImage = new Score(scoreValue);
+            this.Controls.Add(scoreImage);
+            scoreImage.Parent = level;
+            scoreImage.Location = new Point(x, y);
         }
 
         private void UpdateScoreLabel()

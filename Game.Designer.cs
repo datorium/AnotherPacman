@@ -62,6 +62,7 @@
             this.ClientSize = new System.Drawing.Size(726, 496);
             this.Controls.Add(this.ScoreLabel);
             this.Controls.Add(this.labelGameOver);
+            this.DoubleBuffered = true;
             this.Name = "Game";
             this.Text = "Form1";
             this.ResumeLayout(false);
