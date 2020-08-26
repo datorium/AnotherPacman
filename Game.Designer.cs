@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.labelGameOver = new System.Windows.Forms.Label();
+            this.ScoreLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelGameOver
@@ -43,11 +44,23 @@
             this.labelGameOver.Text = "Game Over";
             this.labelGameOver.Visible = false;
             // 
+            // ScoreLabel
+            // 
+            this.ScoreLabel.AutoSize = true;
+            this.ScoreLabel.Font = new System.Drawing.Font("Matura MT Script Capitals", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScoreLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ScoreLabel.Location = new System.Drawing.Point(32, 447);
+            this.ScoreLabel.Name = "ScoreLabel";
+            this.ScoreLabel.Size = new System.Drawing.Size(88, 40);
+            this.ScoreLabel.TabIndex = 1;
+            this.ScoreLabel.Text = "label1";
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 496);
+            this.Controls.Add(this.ScoreLabel);
             this.Controls.Add(this.labelGameOver);
             this.Name = "Game";
             this.Text = "Form1";
@@ -59,6 +72,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelGameOver;
+        private System.Windows.Forms.Label ScoreLabel;
     }
 }
 

@@ -13,6 +13,7 @@ namespace AnotherPacman
     public partial class Game : Form
     {
         private int initialEnemyCount = 4;
+        private int score = 0;
 
         private Random rand = new Random();
         private Level level = new Level();
@@ -40,6 +41,7 @@ namespace AnotherPacman
             AddHero();
             AddEnemies(initialEnemyCount);
             AddFood();
+            UpdateScoreLabel();
         }
 
         private void AddFood()
@@ -187,9 +189,16 @@ namespace AnotherPacman
         {
             if (hero.Bounds.IntersectsWith(food.Bounds))
             {
-                hero.Step += 1;
+                hero.Step += 0;
+                score += 200;
+                UpdateScoreLabel();
                 RespawnFood();
             }
+        }
+
+        private void UpdateScoreLabel()
+        {
+            ScoreLabel.Text = "Score: " + score;
         }
 
         private void RespawnFood()
